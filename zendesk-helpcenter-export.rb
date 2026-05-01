@@ -393,6 +393,7 @@ class ExportHelpCenter
   # ---------------------------------------
   def api(url)
     begin
+      sleep(1)
       options = {:basic_auth => @auth}
       self.class.get("/api/v2/help_center/#{url}", options)
     rescue => e
@@ -441,6 +442,7 @@ class ExportHelpCenter
     log(" - - - - #{article_attachment['file_name']}")
 
     begin
+      sleep(1)
       options = {:basic_auth => @auth}
       file_contents = self.class.get(article_attachment['content_url'], options)
       file_path = "#{store_in_dir}#{file_name}"
